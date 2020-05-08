@@ -1,0 +1,107 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { lorem } from 'faker';
+
+import TextField from './TextField';
+
+export const data = {
+  variant: 'outlined',
+  label: 'Field label',
+  focused: false,
+  error: false,
+  value: lorem.words(2),
+};
+
+<Meta
+  title="Components/Form/TextField"
+  decorators={[
+    (story) => (
+      <div style={{ maxWidth: '512px', width: '100%' }}>{story()}</div>
+    ),
+  ]}
+/>
+
+# TextField
+
+Text fields let users enter and edit text.
+
+<Preview>
+  <Story
+    name="outlined"
+    args={data}
+    argTypes={{
+      variant: {
+        description: '**TextField prop**\n\nModify the variant of the field',
+        type: { summary: '' },
+        control: {
+          type: 'options',
+          controlType: 'select',
+          options: ['outlined', 'filled'],
+        },
+      },
+      label: {
+        description: '**TextField prop**\n\nDefine the field label',
+        control: {
+          type: 'text',
+        },
+      },
+      value: {
+        description: '**Story prop**\n\nDefine the field value',
+        control: {
+          type: 'text',
+        },
+      },
+      focused: {
+        description: '**Story prop**\n\nDisplay the focused state of the field',
+        type: { summary: '' },
+        control: {
+          type: 'boolean',
+        },
+      },
+      error: {
+        description: '**Story prop**\n\nDisplay the error state of the field',
+        type: { summary: '' },
+        control: {
+          type: 'boolean',
+        },
+      },
+    }}
+  >
+    {({ variant, label, value, focused, error }) => (
+      <TextField
+        label={label}
+        variant={variant}
+        field={{
+          value,
+          name: 'TextField',
+          onChange: () => {},
+          onFocus: () => {},
+          onBlur: () => {},
+        }}
+        meta={{ active: focused || value, focused, error }}
+      />
+    )}
+  </Story>
+</Preview>
+
+<Props story="outlined" components={{ TextField }} showComponents={true} />
+
+## Stories
+
+### Filled
+
+<Story name="filled" args={{ ...data, variant: 'filled' }}>
+  {({ variant, label, value, focused, error }) => (
+    <TextField
+      label={label}
+      variant={variant}
+      field={{
+        value,
+        name: 'TextField',
+        onChange: () => {},
+        onFocus: () => {},
+        onBlur: () => {},
+      }}
+      meta={{ active: focused || value, focused, error }}
+    />
+  )}
+</Story>

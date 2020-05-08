@@ -5,7 +5,6 @@ import { FieldContainer, Input, Label, CutBorder, Border } from './InputBase';
 
 export default function TextField({
   label,
-  className,
   variant = 'outlined',
   field,
   meta: { focused, active },
@@ -17,7 +16,7 @@ export default function TextField({
   };
 
   return (
-    <FieldContainer className={className}>
+    <FieldContainer>
       <CutBorder {...controlsProps} label={label} />
       <Border {...controlsProps} hasLabel={!!label} />
       <Input {...field} variant={variant} />
@@ -29,11 +28,6 @@ export default function TextField({
 }
 
 TextField.propTypes = {
-  /**
-   * Style applied to the root element
-   */
-  className: PropTypes.string,
-
   /**
    * Helpers used by the field
    */
@@ -60,12 +54,7 @@ TextField.propTypes = {
   }).isRequired,
 
   /**
-   * Name of the field
-   */
-  name: PropTypes.string.isRequired,
-
-  /**
    * Style presets applied to the component
    */
-  variant: PropTypes.string,
+  variant: PropTypes.oneOf(['outlined', 'filled']),
 };
