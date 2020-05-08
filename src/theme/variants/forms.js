@@ -1,4 +1,4 @@
-export default {
+export const forms = {
   field: {
     outlined: {
       label: {

@@ -1,5 +1,4 @@
-import { useThemeUI, merge } from '@theme-ui/core';
-import { get } from '@theme-ui/css';
+import { useThemeUI, merge, get } from 'theme-ui';
 
 function createParser(styles, root = {}) {
   function parser(rules) {

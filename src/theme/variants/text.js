@@ -1,11 +1,19 @@
-export default {
+/**
+ * Default implicit usage
+ * -----
+ * <Text />
+ * <Heading variant="heading" />
+ */
+export const text = {
   button: {
-    textTransform: 'uppercase',
+    color: 'inherit',
     fontFamily: 'heading',
+    fontSize: 1,
+    textTransform: 'uppercase',
   },
   pageTitle: {
-    fontFamily: 'heading',
     color: 'primary',
+    fontFamily: 'heading',
     fontSize: 6,
     marginBottom: 4,
   },
