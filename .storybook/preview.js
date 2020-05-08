@@ -1,40 +1,27 @@
-import React, { useEffect } from 'react';
-import { Flex } from '@theme-ui/components';
-import { useColorMode } from '@theme-ui/color-modes';
+import React from 'react';
+import { DecoratorThemeProvider } from './components';
 
-import ThemeProvider from '../src/styles';
+import { withThemeSwitch } from './addons/theme-switch';
 
 export const globalArgTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
+  mode: {
+    name: 'Color mode selector',
+    description: 'Set the color mode of the application theme',
     defaultValue: 'light',
     toolbar: { icon: 'circlehollow', items: ['light', 'dark'] },
   },
 };
 
-const ColorModeDecorator = ({ theme }) => {
-  const [_, setMode] = useColorMode();
-
-  useEffect(() => {
-    setMode(theme);
-  }, [setMode, theme]);
-
-  return null;
-};
-
-const ThemeProviderDecorator = (story, { globalArgs: { theme } }) => {
-  return (
-    <ThemeProvider>
-      <ColorModeDecorator theme={theme} />
-      <Flex p={4} sx={{ alignItems: 'center', justifyContent: 'center' }}>
+export const decorators = [
+  withThemeSwitch,
+  (story, { globalArgs }) => {
+    return (
+      <DecoratorThemeProvider mode={globalArgs.mode}>
         {story()}
-      </Flex>
-    </ThemeProvider>
-  );
-};
-
-export const decorators = [ThemeProviderDecorator];
+      </DecoratorThemeProvider>
+    );
+  },
+];
 
 export const parameters = {
   options: {
