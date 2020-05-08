@@ -1,26 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert as TuiAlert, Close } from '@theme-ui/components';
+import { Alert as TuiAlert } from 'theme-ui';
 
-export default function Alert({ onClose, children, variant = 'success' }) {
+import AlertContent from './AlertContent';
+
+export default function Alert({ children, variant = 'success' }) {
   return (
-    <TuiAlert variant={variant}>
-      <div>{children}</div>
-      {onClose && <Close onClick={onClose} sx={{ flex: '0 0 auto' }} />}
+    <TuiAlert
+      sx={{
+        borderRadius: 3,
+        padding: 3,
+        pointerEvents: 'auto',
+        width: '100%',
+        display: 'flex',
+      }}
+      variant={variant}
+    >
+      {typeof children === 'string' ? (
+        <AlertContent>{children}</AlertContent>
+      ) : (
+        children
+      )}
     </TuiAlert>
   );
 }
 
 Alert.propTypes = {
   /**
-   * Content of the alert
+   * Elements that compose the alert content
    */
   children: PropTypes.node.isRequired,
-
-  /**
-   * Click handler to respond to user action
-   */
-  onClose: PropTypes.func,
 
   /**
    * Style presets applied to the component
