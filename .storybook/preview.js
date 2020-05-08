@@ -1,26 +1,8 @@
 import React from 'react';
 import { DecoratorThemeProvider } from './components';
 
-import { withThemeSwitch } from './addons/theme-switch';
-
-export const globalArgTypes = {
-  mode: {
-    name: 'Color mode selector',
-    description: 'Set the color mode of the application theme',
-    defaultValue: 'light',
-    toolbar: { icon: 'circlehollow', items: ['light', 'dark'] },
-  },
-};
-
 export const decorators = [
-  withThemeSwitch,
-  (story, { globalArgs }) => {
-    return (
-      <DecoratorThemeProvider mode={globalArgs.mode}>
-        {story()}
-      </DecoratorThemeProvider>
-    );
-  },
+  (story) => <DecoratorThemeProvider>{story()}</DecoratorThemeProvider>,
 ];
 
 export const parameters = {
@@ -31,6 +13,5 @@ export const parameters = {
      */
     showRoots: true,
   },
-  // actions: { argTypesRegex: '^on.*' },
   passArgsFirst: true,
 };
