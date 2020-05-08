@@ -1,0 +1,117 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { lorem } from 'faker';
+
+import Card from './Card';
+import CardTitle from './CardTitle';
+import CardContent from './CardContent';
+import CardMedia from './CardMedia';
+
+export const data = {
+  variant: 'default',
+  primary: lorem.words(3),
+  secondary: lorem.words(5),
+  children: lorem.sentences(2),
+  image: 'https://picsum.photos/seed/picsum/512/384',
+};
+
+<Meta
+  title="Components/Card"
+  decorators={[
+    (story) => (
+      <div style={{ maxWidth: '512px', width: '100%' }}>{story()}</div>
+    ),
+  ]}
+/>
+
+# Card
+
+Cards are surfaces that display content and actions on a single topic. They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.
+
+<Preview>
+  <Story
+    name="default"
+    args={data}
+    argTypes={{
+      variant: {
+        description: '**Card prop**\n\nModify the variant of the card',
+        type: { summary: '' },
+        control: {
+          type: 'options',
+          controlType: 'select',
+          options: ['default', 'primary', 'secondary'],
+        },
+      },
+      primary: {
+        description: '**CardTitle prop**\n\nDefine the card title',
+        control: {
+          type: 'text',
+        },
+      },
+      secondary: {
+        description: '**CardTitle prop**\n\nDefine the card subtitle',
+        control: {
+          type: 'text',
+        },
+      },
+      children: {
+        description: '**CardContent prop**\n\nDefine the card content',
+        control: {
+          type: 'text',
+        },
+      },
+      displayMedia: {
+        description: '**Story prop**\n\nShow the media component',
+        type: { summary: '' },
+        control: {
+          type: 'boolean',
+        },
+      },
+      image: {
+        description: '**CardMedia prop**\n\nThe image link to use in the card',
+        control: {
+          type: 'text',
+        },
+      },
+    }}
+  >
+    {({ variant, primary, secondary, children, displayMedia, image }) => (
+      <Card variant={variant}>
+        {displayMedia && <CardMedia image={image} />}
+        <CardTitle primary={primary} secondary={secondary} />
+        <CardContent>{children}</CardContent>
+      </Card>
+    )}
+  </Story>
+</Preview>
+
+<Props
+  story="default"
+  components={{ Card, CardTitle, CardContent, CardMedia }}
+  showComponents={true}
+/>
+
+## Stories
+
+### Primary
+
+<Story name="primary" args={{ ...data, variant: 'primary' }}>
+  {({ variant, primary, secondary, children, displayMedia, image }) => (
+    <Card variant={variant}>
+      {displayMedia && <CardMedia image={image} />}
+      <CardTitle primary={primary} secondary={secondary} />
+      <CardContent>{children}</CardContent>
+    </Card>
+  )}
+</Story>
+
+### Secondary
+
+<Story name="secondary" args={{ ...data, variant: 'secondary' }}>
+  {({ variant, primary, secondary, children, displayMedia, image }) => (
+    <Card variant={variant}>
+      {displayMedia && <CardMedia image={image} />}
+      <CardTitle primary={primary} secondary={secondary} />
+      <CardContent>{children}</CardContent>
+    </Card>
+  )}
+</Story>

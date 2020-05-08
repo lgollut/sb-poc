@@ -1,25 +1,22 @@
-const baseCard = {
+const baseCard = (backgroundColor) => ({
+  backgroundColor: backgroundColor,
+  color: ({ helpers: { contrastedTextColor }, colors }) =>
+    contrastedTextColor(colors[backgroundColor], ['text', 'contrastText']),
   borderRadius: 2,
   boxShadow: 4,
   display: 'flex',
   flexDirection: 'column',
   overflow: 'hidden',
-};
+});
 
 export const cards = {
   default: {
-    ...baseCard,
-    backgroundColor: 'surface',
-    color: 'text',
+    ...baseCard('surface'),
   },
   primary: {
-    ...baseCard,
-    backgroundColor: 'primary',
-    color: 'text',
+    ...baseCard('primary'),
   },
   secondary: {
-    ...baseCard,
-    backgroundColor: 'secondary',
-    color: 'text',
+    ...baseCard('secondary'),
   },
 };
