@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@theme-ui/core';
+import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 import { useRules } from '../../../styles';
@@ -27,9 +27,9 @@ export default function CutBorder({
           zIndex: 0,
           margin: 0,
           padding: 0,
-          transition: ({ transitions }) =>
-            transitions.create('all', {
-              duration: transitions.duration.shorter,
+          transition: ({ helpers: { createTransition }, durations }) =>
+            createTransition('all', {
+              duration: durations.shorter,
             }),
           ...rules([
             {

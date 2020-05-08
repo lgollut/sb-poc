@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Heading, Text } from '@theme-ui/components';
+import { Box, Heading, Text } from 'theme-ui';
 
 export default function CardTitle({ primary, secondary }) {
   return (

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@theme-ui/core';
+import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 export default function Input({

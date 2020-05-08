@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box } from '@theme-ui/components';
+import { Box } from 'theme-ui';
 
 export default function CardContent({ children }) {
   return (

@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core';
+import React from 'react';
 import PropTypes from 'prop-types';
-
-import { Card as TuiCard } from '@theme-ui/components';
+import { Card as TuiCard } from 'theme-ui';
 
 /**
  * Cards are surfaces that display content and actions on a single topic.

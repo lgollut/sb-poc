@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { FieldContainer, Input, Label, CutBorder, Border } from './InputBase';

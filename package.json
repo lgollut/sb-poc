@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/lgollut/sb-poc#readme",
   "dependencies": {
+    "@theme-ui/color": "^0.3.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
@@ -35,7 +36,6 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
-    "@emotion/core": "^10.0.27",
     "@storybook/addon-actions": "next",
     "@storybook/addon-contexts": "next",
     "@storybook/addon-docs": "next",
@@ -45,12 +45,6 @@
     "@storybook/addon-viewport": "next",
     "@storybook/addons": "next",
     "@storybook/react": "next",
-    "@theme-ui/color": "^0.3.1",
-    "@theme-ui/color-modes": "^0.3.1",
-    "@theme-ui/components": "^0.3.1",
-    "@theme-ui/core": "^0.3.1",
-    "@theme-ui/css": "^0.3.1",
-    "@theme-ui/typography": "^0.3.0",
     "babel-loader": "^8.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
@@ -59,6 +53,6 @@
     "eslint-plugin-react": "^7.18.3",
     "faker": "^4.1.0",
     "prettier": "^2.0.4",
-    "react-is": "^16.13.1"
+    "theme-ui": "^0.3.1"
   }
 }

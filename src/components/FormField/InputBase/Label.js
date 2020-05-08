@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core';
-import { Label as ThemedLabel } from '@theme-ui/components';
+import React from 'react';
+import { Label as ThemedLabel } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 import { useRules } from '../../../styles';
@@ -26,9 +25,9 @@ export default function Label({
           width: 'auto',
           px: 2,
           mx: -2,
-          transition: ({ transitions }) =>
-            transitions.create('all', {
-              duration: transitions.duration.short,
+          transition: ({ helpers: { createTransition }, durations }) =>
+            createTransition('all', {
+              duration: durations.short,
             }),
           ...rules({ active, focused }),
         }}

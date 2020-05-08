@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Image } from '@theme-ui/components';
+import { Image } from 'theme-ui';
 
 export default function CardMedia({ image }) {
   return <Image src={image} />;
