@@ -2,11 +2,7 @@
 import React from 'react';
 import { lorem } from 'faker';
 
-import { Button } from '../Button';
-
 import Alert from './Alert';
-import AlertContent from './AlertContent';
-import AlertActions from './AlertActions';
 
 export default {
   title: 'Components/Alert',
@@ -44,23 +40,5 @@ export const Error = ({ children, variant }) => (
 );
 
 Error.story = {
-  args: { variant: 'error' },
-};
-
-export const WithActions = ({ onDismiss, onValidate, children, variant }) => (
-  <Alert onDismiss={onDismiss} onValidate={onValidate} variant={variant}>
-    <AlertContent>{children}</AlertContent>
-    <AlertActions>
-      <Button onClick={onValidate} variant={variant}>
-        {'Validate'}
-      </Button>
-      <Button onClick={onDismiss} variant={variant}>
-        {'Dismiss'}
-      </Button>
-    </AlertActions>
-  </Alert>
-);
-
-WithActions.story = {
   args: { variant: 'error' },
 };
